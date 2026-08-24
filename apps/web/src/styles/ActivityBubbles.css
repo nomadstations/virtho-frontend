@@ -1,0 +1,126 @@
+/* ========================================
+   ACTIVITY BUBBLES STYLES
+   Floating cards matching 3D spherical nodes aesthetic
+   ======================================== */
+
+.activity-bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* ========================================
+   OUTLINE BUBBLE WITH TAIL
+   ======================================== */
+
+.activity-bubble-box {
+  border: 1px solid #B7E3D4 !important; /* Brand logo connector color */
+  background-color: #ffffff !important;
+  position: relative;
+  /* Hardware acceleration for smooth scaling */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Tail base positioning */
+.activity-bubble-box::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff !important;
+  border: 1px solid #B7E3D4 !important;
+  z-index: 0;
+  border-radius: 1px;
+}
+
+/* Directional Tails using CSS Rotated Square */
+.activity-bubble-box[data-tail="top"]::after {
+  top: -6.5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-bottom: none;
+  border-right: none;
+}
+
+.activity-bubble-box[data-tail="bottom"]::after {
+  bottom: -6.5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-top: none;
+  border-left: none;
+}
+
+.activity-bubble-box[data-tail="left"]::after {
+  left: -6.5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-top: none;
+  border-right: none;
+}
+
+.activity-bubble-box[data-tail="right"]::after {
+  right: -6.5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  border-bottom: none;
+  border-left: none;
+}
+
+/* ========================================
+   DARK MODE OVERRIDES
+   Force white background and proper borders to match the design spec
+   ======================================== */
+
+[data-theme="dark"] .activity-bubble-box,
+.dark .activity-bubble-box {
+  border-color: #B7E3D4 !important;
+  background-color: #ffffff !important;
+}
+
+[data-theme="dark"] .activity-bubble-box::after,
+.dark .activity-bubble-box::after {
+  border-color: #B7E3D4 !important;
+  background-color: #ffffff !important;
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY & SPACING
+   ======================================== */
+
+@media (max-width: 480px) {
+  .activity-bubble-box {
+    max-width: 220px !important;
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .activity-bubble-box {
+    max-width: 260px !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-bubble-box {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.activity-bubble-box:focus-visible {
+  outline: 2px solid #B7E3D4;
+  outline-offset: 4px;
+}

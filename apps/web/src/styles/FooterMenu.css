@@ -1,0 +1,76 @@
+/* ========================================
+   FOOTER MENU STYLES
+   Refactored for modular section architecture
+   ======================================== */
+
+.footer-master-container {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 3rem;
+  background-color: hsl(var(--footer-bg));
+  color: hsl(var(--footer-fg));
+  border-top: 1px solid hsl(var(--footer-border));
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .footer-master-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-master-container {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5rem;
+  }
+}
+
+.footer-content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section Title Typography */
+.footer-section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* Link Interactions */
+.footer-link-item {
+  position: relative;
+}
+
+.footer-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: hsl(var(--brand-purple));
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-link-item:hover::after {
+  width: 100%;
+}
+
+.footer-link-item:focus-visible {
+  outline: 2px solid hsl(var(--brand-purple));
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Dark mode specific adjustments */
+.dark .footer-master-container {
+  background-color: hsl(var(--footer-bg));
+  border-top-color: hsl(var(--footer-border));
+}

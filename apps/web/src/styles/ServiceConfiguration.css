@@ -1,0 +1,79 @@
+.service-config-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.service-card {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.service-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.status-active {
+  background-color: hsla(var(--status-success), 0.15);
+  color: hsl(var(--status-success));
+}
+
+.status-inactive {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}
+
+.language-pair-card {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.language-pair-card:hover {
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+.nested-table-row {
+  background-color: hsl(var(--muted) / 0.3);
+}
+
+.nested-table-container {
+  padding: 1rem 2rem;
+  border-top: 1px dashed hsl(var(--border));
+}
+
+.upload-dropzone {
+  border: 2px dashed hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: hsl(var(--background));
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.upload-dropzone:hover, .upload-dropzone.active {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.05);
+}
